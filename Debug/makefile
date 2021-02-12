@@ -28,34 +28,34 @@ endif
 
 -include ../makefile.defs
 
-BUILD_ARTIFACT_NAME := HAL_CAN
+BUILD_ARTIFACT_NAME := Blue-Pill-CAN-Test
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-HAL_CAN.elf \
+Blue-Pill-CAN-Test.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-HAL_CAN.list \
+Blue-Pill-CAN-Test.list \
 
 OBJCOPY_BIN += \
-HAL_CAN.bin \
+Blue-Pill-CAN-Test.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: HAL_CAN.elf secondary-outputs
+main-build: Blue-Pill-CAN-Test.elf secondary-outputs
 
 # Tool invocations
-HAL_CAN.elf: $(OBJS) $(USER_OBJS) C:\Users\mcw\STM32CubeIDE\workspace\HAL_CAN\STM32F103C8TX_FLASH.ld
-	arm-none-eabi-gcc -o "HAL_CAN.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mcw\STM32CubeIDE\workspace\HAL_CAN\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HAL_CAN.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Blue-Pill-CAN-Test.elf: $(OBJS) $(USER_OBJS) C:\Users\mcw\STM32CubeIDE\workspace\Blue-Pill-CAN-Test\STM32F103C8TX_FLASH.ld
+	arm-none-eabi-gcc -o "Blue-Pill-CAN-Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mcw\STM32CubeIDE\workspace\Blue-Pill-CAN-Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blue-Pill-CAN-Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -64,13 +64,13 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-HAL_CAN.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "HAL_CAN.list"
+Blue-Pill-CAN-Test.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Blue-Pill-CAN-Test.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-HAL_CAN.bin: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "HAL_CAN.bin"
+Blue-Pill-CAN-Test.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Blue-Pill-CAN-Test.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 

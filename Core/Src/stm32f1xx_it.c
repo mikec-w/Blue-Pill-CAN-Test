@@ -216,10 +216,11 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
   HAL_CAN_IRQHandler(&hcan);
   /* USER CODE BEGIN USB_LP_CAN1_RX0_IRQn 1 */
   HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &pRxHeader, &r);
-  /* USER CODE END USB_LP_CAN1_RX0_IRQn 1 */
 
   // Set the GREEN Led to ON.
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+
+  /* USER CODE END USB_LP_CAN1_RX0_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
