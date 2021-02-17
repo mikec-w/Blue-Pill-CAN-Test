@@ -26,14 +26,20 @@ The software project is included in the GIT. It is relatively simple and just se
 
 * The CAN_MODE_LOOPBACK mode is quite useful as you can still see the output on the Tx pin if you oscilliscope it - the Rx pin will ignore any input on it in this mode.
 
+## Photos of the test bench
+
+Not the neatest of layouts, for example I had to use a resistor ladder to get my 120&#937; CAN bus termination resistance. 
+
+![CAN Demo BreadBoard](CANDemoBreadBoard.jpg "Demo BreadBoard")
+
 ## Useful web links
 
-![CAN with out a transceiver](https://electronics.stackexchange.com/questions/30564/is-a-can-enabled-microcontroller-sufficient-to-drive-a-can-bus)
+[CAN without a transceiver](https://electronics.stackexchange.com/questions/30564/is-a-can-enabled-microcontroller-sufficient-to-drive-a-can-bus)
 
-![STM32 CAN Interferface tutorial](https://www.instructables.com/STM32-CAN-Interface/)
+[STM32 CAN Interferface tutorial](https://www.instructables.com/STM32-CAN-Interface/)
 
-![STM32 Reference Manual](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f405-415-stm32f407-417-stm32f427-437-and-stm32f429-439-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf)
+[STM32 Reference Manual](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f405-415-stm32f407-417-stm32f427-437-and-stm32f429-439-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf)
 
-![Explanation of STM32 CAN including Bit Timing](https://www.youtube.com/playlist?list=PLERTijJOmYrApVZqiI6gtA8hr1_6QS-cs)
+[Explanation of STM32 CAN including Bit Timing](https://www.youtube.com/playlist?list=PLERTijJOmYrApVZqiI6gtA8hr1_6QS-cs)
 
-![MCP2551 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf)
+[MCP2551 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf)
