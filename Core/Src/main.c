@@ -140,6 +140,7 @@ int main(void)
 	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 	  delay(5000000);
 
+	  //Debug console
 	  HAL_UART_Transmit(&huart2, (uint8_t *)"Hello World!\r\n", 15U, 100U);
 	  /* USER CODE BEGIN 3 */
   }
@@ -195,16 +196,24 @@ static void MX_CAN_Init(void)
   /* USER CODE BEGIN CAN_Init 0 */
 
   /* USER CODE END CAN_Init 0 */
-
   /* USER CODE BEGIN CAN_Init 1 */
 
   /* USER CODE END CAN_Init 1 */
+
+  // Note this will setup the CAN for 500kbit operation.
+  // Use the following website to calculate the bit timings
+  // From the spec sheet we know that the CAN timing is based on the AP1B peripheral clock which is currently setup for 36mhz
+  // http://www.bittiming.can-wiki.info/
+
   hcan.Instance = CAN1;
-  hcan.Init.Prescaler = 18;
-  hcan.Init.Mode = CAN_MODE_LOOPBACK;
+  hcan.Init.Prescaler = 4;
+
+  // Swap this line to CAN_MODE_LOOPBACK if you don't have a transceiver setup
+  hcan.Init.Mode = CAN_MODE_NORMAL;
+
   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan.Init.TimeSeg1 = CAN_BS1_12TQ;
-  hcan.Init.TimeSeg2 = CAN_BS2_4TQ;
+  hcan.Init.TimeSeg1 = CAN_BS1_15TQ;
+  hcan.Init.TimeSeg2 = CAN_BS2_2TQ;
   hcan.Init.TimeTriggeredMode = DISABLE;
   hcan.Init.AutoBusOff = DISABLE;
   hcan.Init.AutoWakeUp = DISABLE;
